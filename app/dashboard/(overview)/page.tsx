@@ -10,6 +10,10 @@ import {
   CardsSkeleton,
 } from '@/app/ui/skeletons';
 
+export const metadata: Metadata = {
+  title: 'Home',
+};
+
 export default async function Page() {
   const latestInvoices = await fetchLatestInvoices();
 
