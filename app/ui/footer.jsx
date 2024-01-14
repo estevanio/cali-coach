@@ -7,7 +7,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 export const AppFooter = () => {
-  const theme = getTheme('light');
+  const theme = getTheme();
   return (
     <Box
       component="footer"

@@ -34,7 +34,5 @@ export const light = {
   background: {
     paper: "#ffffff",
     default: "#ffffff",
-    level2: "#f5f5f5",
-    level1: "#ffffff"
   }
 };
