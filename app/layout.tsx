@@ -2,6 +2,7 @@ import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 import { Metadata } from 'next';
 import { AppFooter } from '@/app/ui/footer';
+import { DrawerAppBar } from '@/app/ui/DrawerAppBar';
 
 export const metadata: Metadata = {
   title: {
@@ -20,7 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
+        <DrawerAppBar>
         {children}
+        </DrawerAppBar>
         <AppFooter />
       </body>
     </html>
