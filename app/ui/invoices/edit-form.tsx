@@ -1,3 +1,4 @@
+/*eslint-disable no-unused-vars*/
 'use client';
 
 import { CustomerField, InvoiceForm } from '@/app/lib/definitions';
