@@ -57,7 +57,7 @@ const Mission = ({ title, description }) => {
                 loading="lazy"
                 height={1}
                 width={1}
-                src="/seedling.jpg"
+                src="images/seedling.jpg"
                 alt="..."
                 sx={{
                   objectFit: "cover",

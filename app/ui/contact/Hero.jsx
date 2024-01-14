@@ -41,7 +41,7 @@ const Hero = ({ content }) => {
       data-jarallax
       data-speed="0.2"
       position={"relative"}
-      minHeight={{ xs: 400, sm: 500, md: 600 }}
+      minHeight={{ xs: 200, sm: 250, md: 350 }}
       display={"flex"}
       alignItems={"center"}
       marginTop={-13}

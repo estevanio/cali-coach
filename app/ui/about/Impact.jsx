@@ -54,9 +54,6 @@ const Copy = () => {
         </Typography>
       </Box>
 
-      <Box>
-        <Divider />
-      </Box>
     </Box>
   );
 };
