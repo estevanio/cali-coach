@@ -32,10 +32,6 @@ export  function DrawerAppBar({ children, ...props }) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const themeToggler = () => {
-    themeMode === "light" ? setMode("dark") : setMode("light");
-  };
-
   const themeMode = "light";
 
   const handleDrawerToggle = () => {
@@ -117,7 +113,7 @@ export  function DrawerAppBar({ children, ...props }) {
       </nav>
       <Box component="main">
         <Toolbar />
-        <ThemeProvider theme={getTheme(themeMode, themeToggler)}>
+        <ThemeProvider theme={getTheme(themeMode)}>
           <Paper elevation={0}>
           {children}
           </Paper>

@@ -33,7 +33,7 @@ const AboutSpecialtySection = ({ content }) => {
       </Box>
       <Grid container spacing={4} direction={isMd ? "row" : "column"}>
         {items.map((item) => (
-          <Grid item container justifyContent="center" xs={12} md={6}>
+          <Grid item key={item.name}container justifyContent="center" xs={12} md={6}>
             <Box>
               <Typography variant={"h4"} gutterBottom sx={{ fontWeight: 700 }}>
                 {item.name}
