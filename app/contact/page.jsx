@@ -3,9 +3,9 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import ContactFormSection from "./ContactFormSection";
-import ContactHeroSection from "./ContactHeroSection";
-import ContactJoinSection from "./ContactJoinSection";
+import ContactFormSection from "@/app/ui/contact/FormSection";
+import ContactHeroSection from "@/app/ui/contact/HeroSection";
+import ContactJoinSection from "@/app/ui/contact/JoinSection";
 
 const Container = ({ children, ...rest }) => (
   <Box

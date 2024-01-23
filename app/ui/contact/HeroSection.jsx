@@ -35,7 +35,7 @@ const ContactHeroSection = ({ content }) => {
 
   return (
     <Box
-      className={"jarallax"}627000000
+      className={"jarallax"}
       data-jarallax
       data-speed="0.2"
       position={"relative"}
