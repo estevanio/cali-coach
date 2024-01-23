@@ -1,4 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
+'use client';
+
 import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -25,7 +27,7 @@ const validationSchema = yup.object({
     .required("Email is required"),
 });
 
-const Form = ({ content }) => {
+const ContactFormSection = ({ content }) => {
   const { header, subHeader } = content;
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up("md"), {
@@ -161,4 +163,4 @@ const Form = ({ content }) => {
   );
 };
 
-export default Form;
+export default ContactFormSection;

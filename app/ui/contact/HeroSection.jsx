@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect } from "react";
 import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -18,7 +16,9 @@ const Container = ({ children, ...rest }) => (
   </Box>
 );
 
-const Hero = () => {
+const ContactHeroSection = ({ content }) => {
+  const { header, subHeader } = content;
+
   useEffect(() => {
     const jarallaxInit = async () => {
       const jarallaxElems = document.querySelectorAll(".jarallax");
@@ -35,11 +35,11 @@ const Hero = () => {
 
   return (
     <Box
-      className={"jarallax"}
+      className={"jarallax"}627000000
       data-jarallax
       data-speed="0.2"
       position={"relative"}
-      minHeight={{ xs: 200, sm: 250, md: 350 }}
+      minHeight={{ xs: 400, sm: 500, md: 600 }}
       display={"flex"}
       alignItems={"center"}
       marginTop={-13}
@@ -60,8 +60,9 @@ const Hero = () => {
           zIndex: -1,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundPosition: "bottom",
-          backgroundImage: "url(/images/burnedforest.jpg)"
+          backgroundPosition: "center center",
+          backgroundImage:
+            "url(https://assets.maccarianagency.com/backgrounds/img52.jpg)",
         }}
       />
       <Box
@@ -74,7 +75,7 @@ const Hero = () => {
           width: 1,
           height: 1,
           background: alpha("#161c2d", 0.4),
-          zIndex: 1
+          zIndex: 1,
         }}
       />
       <Container position={"relative"} zIndex={2}>
@@ -84,27 +85,26 @@ const Hero = () => {
             gutterBottom
             sx={{
               fontWeight: 900,
-              color: "brand.beige",
+              color: "common.white",
               textTransform: "uppercase",
-              textShadow: "1px 1px 2px #0F0F0F"
             }}
           >
-            About Cars2Trees
+            {header}
           </Typography>
-          {/* <Typography
+          <Typography
             variant="h6"
             component="p"
             color="text.primary"
             sx={{
-              color: "common.white"
+              color: "common.white",
             }}
           >
-            Proudly Serving Southern California Since 2000!
-          </Typography> */}
+            {subHeader}
+          </Typography>
         </Box>
       </Container>
     </Box>
   );
 };
 
-export default Hero;
+export default ContactHeroSection;

@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 import React from "react";
 import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import ContactFormSection from "./ContactFormSection";
-import ContactHeroSection from "./ContactHeroSection";
-import ContactJoinSection from "./ContactJoinSection";
+import Hero from "@/app/ui/contact/Hero";
+import Form from "@/app/ui/contact//Form";
+import ContactDetails from "@/app/ui/contact/ContactDetails";
 
 const Container = ({ children, ...rest }) => (
   <Box
@@ -24,17 +24,17 @@ const Contact = () => {
   const content = {
     hero: {
       header: "Contact Us",
-      subHeader: "Proudly Serving Southern California Since 2000!",
+      subHeader: "Ready to turn your old car into trees?"
     },
     join: {
       header: "Interested in joining our team?",
-      subHeader: "E-mail an application form to jobs@californiacoach.com.",
+      subHeader: "E-mail an application form to jobs@californiacoach.com."
     },
     form: {
-      header: "Can't find the answer you need?",
+      header: "Let's connect!",
       subHeader:
-        "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
-    },
+        "At Cars 2 Trees, your thoughts, questions, and feedback are essential to us. Whether you want to know more about our mission, have a specific request regarding your donation, or simply want to share your thoughts, we're here to listen."
+    }
   };
 
   return (
@@ -45,21 +45,19 @@ const Contact = () => {
           backgroundColor: theme.palette.alternate.main,
           backgroundImage: `linear-gradient(120deg, ${theme.palette.alternate.dark} 0%, ${theme.palette.background.paper} 100%)`,
           marginTop: -13,
-          paddingTop: 13,
+          paddingTop: 13
         }}
       >
-        <ContactHeroSection content={content.hero} />
+        <Hero content={content.hero} />
       </Box>
       <Box bgcolor={"alternate.main"}>
         <Container>
-          <ContactFormSection content={content.form} />
+          <Form content={content.form} />
         </Container>
       </Box>
-      <Box bgcolor={"alternate.main"}>
-        <Container>
-          <ContactJoinSection content={content.join} />
-        </Container>
-      </Box>
+      <Container>
+      <ContactDetails/>
+      </Container>
     </>
   );
 };

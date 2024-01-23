@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -16,30 +16,27 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { ThemeProvider } from "@mui/material/styles";
+import getTheme from "@/app/lib/theme";
 import Paper from "@mui/material/Paper";
-
-import { getTheme } from '@/app/lib/theme';
-
-
 import Link from 'next/link';
 
 
-
-export  function DrawerAppBar({ children, ...props }) {
-  const drawerWidth = 240;
+const drawerWidth = 240;
 const navItems = [
   { name: "Home", url: "/" },
   { name: "About", url: "/about" },
-  { name: "Contact", url: "/contact" }
+  { name: "Contact", url: "/contact" },
 ];
+
+export  function DrawerAppBar({ children, ...props }) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  // const isMd = useMediaQuery(theme.breakpoints.up("md"), {
-  //   defaultMatches: true,
-  // });
+  const themeToggler = () => {
+    themeMode === "light" ? setMode("dark") : setMode("light");
+  };
+
   const themeMode = "light";
-  const theme = getTheme("light");
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -48,14 +45,14 @@ const navItems = [
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        Cars2Trees
+        MUI
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item.name} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <Link href={item.url}>
+              <Link  href={item.url}>
                 <ListItemText primary={item.name} />
               </Link>
             </ListItemButton>
@@ -65,17 +62,13 @@ const navItems = [
     </Box>
   );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
+
   return (
     <Box>
       <CssBaseline />
-      <AppBar
-        component="nav"
-        sx={{
-          backgroundColor: `${theme.palette.brand.seal}`,
-          color: `${theme.palette.brand.beige}`
-        }}
-      >
+      <AppBar component="nav">
         <Toolbar>
           <IconButton
             color="inherit"
@@ -86,37 +79,16 @@ const navItems = [
           >
             <MenuIcon />
           </IconButton>
-          <Box
-            sx={{
-              flexGrow: 1,
-              alignItems: "center",
-              display: "flex"
-            }}
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            <img
-              height="60px"
-              src="images/logo.svg"
-              style={{ margin: "10px" }}
-            ></img>
-            <Typography
-              variant="h6"
-              component="a"
-              sx={{
-                height: "100%",
-                display: { xs: "none", sm: "block" },
-                paddingX: "15px"
-              }}
-            >
-              Cars2Trees
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: { xs: "none", sm: "block" }
-            }}
-          >
+            California Coach
+          </Typography>
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Link href={item.url} key={item.name}>
+              <Link  href={item.url} key={item.name}>
                 <Button sx={{ color: "#fff" }}>{item.name}</Button>
               </Link>
             ))}
@@ -130,14 +102,14 @@ const navItems = [
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true // Better open performance on mobile.
+            keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
-              width: drawerWidth
-            }
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
@@ -145,9 +117,9 @@ const navItems = [
       </nav>
       <Box component="main">
         <Toolbar />
-        <ThemeProvider theme={getTheme(themeMode)}>
+        <ThemeProvider theme={getTheme(themeMode, themeToggler)}>
           <Paper elevation={0}>
-            {children}
+          {children}
           </Paper>
         </ThemeProvider>
       </Box>

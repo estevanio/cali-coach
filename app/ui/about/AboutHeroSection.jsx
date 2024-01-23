@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useEffect } from "react";
 import { alpha } from "@mui/material/styles";
@@ -18,9 +18,7 @@ const Container = ({ children, ...rest }) => (
   </Box>
 );
 
-const Hero = ({ content }) => {
-  const { header, subHeader } = content;
-
+const AboutHeroSection = () => {
   useEffect(() => {
     const jarallaxInit = async () => {
       const jarallaxElems = document.querySelectorAll(".jarallax");
@@ -41,7 +39,7 @@ const Hero = ({ content }) => {
       data-jarallax
       data-speed="0.2"
       position={"relative"}
-      minHeight={{ xs: 200, sm: 250, md: 350 }}
+      minHeight={{ xs: 400, sm: 500, md: 600 }}
       display={"flex"}
       alignItems={"center"}
       marginTop={-13}
@@ -63,7 +61,8 @@ const Hero = ({ content }) => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center center",
-          backgroundImage: "url(/images/roadwithtrees.jpg)"
+          backgroundImage:
+            "url(https://assets.maccarianagency.com/backgrounds/img52.jpg)",
         }}
       />
       <Box
@@ -76,7 +75,7 @@ const Hero = ({ content }) => {
           width: 1,
           height: 1,
           background: alpha("#161c2d", 0.4),
-          zIndex: 1
+          zIndex: 1,
         }}
       />
       <Container position={"relative"} zIndex={2}>
@@ -87,20 +86,20 @@ const Hero = ({ content }) => {
             sx={{
               fontWeight: 900,
               color: "common.white",
-              textTransform: "uppercase"
+              textTransform: "uppercase",
             }}
           >
-            {header}
+            About us
           </Typography>
           <Typography
             variant="h6"
             component="p"
             color="text.primary"
             sx={{
-              color: "common.white"
+              color: "common.white",
             }}
           >
-            {subHeader}
+            Proudly Serving Southern California Since 2000!
           </Typography>
         </Box>
       </Container>
@@ -108,4 +107,4 @@ const Hero = ({ content }) => {
   );
 };
 
-export default Hero;
+export default AboutHeroSection;
